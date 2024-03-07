@@ -8,6 +8,33 @@
         <link rel="stylesheet" href="./css/three-3.css">
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            const apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9'; // Replace with your actual Steam Web API key
+            const appId = '1966720'; // Replace with the Steam App ID of your desired game
+    
+            // Construct the API URL
+            const baseUrl = 'https://api.steampowered.com/';
+            const endpoint = 'ISteamUserStats/GetNumberOfCurrentPlayers/v1/';
+            const apiUrl = `${baseUrl}${endpoint}?appid=${appId}&key=${apiKey}`;
+    
+            // Make AJAX request to Steam Web API
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                success: function(response) {
+                    // Parse the response and extract the player count
+                    const playerCount = response.response.player_count;
+    
+                    // Update the HTML with the player count
+                    $('#playerCount').text(`Current Players: ${playerCount}`);
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    console.error('Error fetching player count:', error);
+                    $('#playerCount').text('Error fetching player count');
+                }
+            });
+        </script>
     </head>
     <body style="background-color:rgb(0, 0, 0)">
         <nav class="navbar">
@@ -37,32 +64,7 @@
             <h1 style="color: #00ff2f;">Current Number of players</h1>
             <p id="playerCount">Loading...</p>
         </div>
-        <script>
-            // Replace 'YOUR_API_KEY' with your actual Steam Web API key
-            const apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9';
-            const appId = '1966720'; // Replace with the Steam App ID of your desired game
-    
-            // Construct the API URL
-            const apiUrl = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}&key=${apiKey}`;
-    
-            // Make AJAX request to Steam Web API
-            $.ajax({
-                url: apiUrl,
-                method: 'GET',
-                success: function(response) {
-                    // Parse the response and extract the player count
-                    const playerCount = response.response.player_count;
-    
-                    // Update the HTML with the player count
-                    $('#playerCount').text(`Current Players: ${playerCount}`);
-                },
-                error: function(xhr, status, error) {
-                    // Handle errors
-                    console.error('Error fetching player count:', error);
-                    $('#playerCount').text('Error fetching player count');
-                }
-            });
-        </script>
+        
 
 
         <div class="row">
