@@ -33,37 +33,37 @@
         </nav>
 
 
-        <div class="container1">
-            <h1 style="color: #00ff2f;">Current Number of Employees</h1>
-            <p id="playerCount">Loading...</p>
-        </div>
-        <script>
-            // Replace 'YOUR_API_KEY' with your actual Steam Web API key
-            const apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9';
-            const appId = '1966720'; // Replace with the Steam App ID of your desired game
-    
-            // Construct the API URL
-            const apiUrl = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}&key=${apiKey}`;
-    
-            // Make AJAX request to Steam Web API
-            $.ajax({
-                url: apiUrl,
-                method: 'GET',
-                success: function(response) {
-                    // Parse the response and extract the player count
-                    const playerCount = response.response.player_count;
-    
-                    // Update the HTML with the player count
-                    $('#playerCount').text(`Current Players: ${playerCount}`);
-                },
-                error: function(xhr, status, error) {
-                    // Handle errors
-                    console.error('Error fetching player count:', error);
-                    $('#playerCount').text('Error fetching player count');
-                }
-            });
-        </script>
+        <h1>Current Player Count</h1>
+    <p id="playerCount">Loading...</p>
 
+    <script>
+        // Function to fetch player count from SteamCharts
+        function fetchPlayerCount() {
+            // Replace 'GAME_URL' with the URL of the game's SteamCharts page
+            const gameUrl = 'https://steamcharts.com/app/1966720';
+
+            // Fetch the HTML content of the SteamCharts page
+            fetch(gameUrl)
+                .then(response => response.text())
+                .then(data => {
+                    // Parse the HTML content to extract the player count
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const playerCountElement = doc.querySelector('.app-stat.app-stat-player_count .number');
+                    const playerCount = playerCountElement ? playerCountElement.textContent.trim() : 'N/A';
+
+                    // Update the HTML with the player count
+                    document.getElementById('playerCount').textContent = `Current Players: ${playerCount}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching player count:', error);
+                    document.getElementById('playerCount').textContent = 'Error fetching player count';
+                });
+        }
+
+        // Call the fetchPlayerCount function when the page loads
+        window.addEventListener('load', fetchPlayerCount);
+    </script>
 
         <div class="row">
             <div class="col">
