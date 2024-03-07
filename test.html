@@ -3,22 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steam API Fetch</title>
+<title>Random Number Generator</title>
 </head>
 <body>
-<script>
-  const requestOptions = {
-    method: "GET",
-    redirect: "follow"
-  };
+<h1>Random Number Generator</h1>
+<p id="randomNumber"></p>
 
-  fetch("https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1966720", requestOptions)
-    .then(response => response.json())
-    .then(result => {
-      // Display the result
-      document.body.innerHTML = "<pre>" + JSON.stringify(result, null, 2) + "</pre>";
-    })
-    .catch(error => console.error('Error:', error));
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  async function fetchRandomNumber() {
+    const options = {
+      method: 'GET',
+      url: 'https://random-number6.p.rapidapi.com/int',
+      params: {
+        min: '20000',
+        max: '50000'
+      },
+      headers: {
+        'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
+        'X-RapidAPI-Host': 'random-number6.p.rapidapi.com'
+      }
+    };
+
+    try {
+      const response = await axios.request(options);
+      document.getElementById('randomNumber').textContent = `Random Number: ${response.data}`;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  fetchRandomNumber();
 </script>
 </body>
 </html>
