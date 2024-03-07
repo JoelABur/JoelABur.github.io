@@ -8,10 +8,10 @@ function handleSearch() {
     // Define a mapping of search terms to corresponding URLs
     const searchTermsToUrls = {
         'jobs': 'Job_info.html',
-        'home': 'home.html',
+        'home': 'index.html',
         'about us': "About_us.html",
         'jobs info': 'Job_info.html',
-        'home page': 'home.html',
+        'home page': 'index.html',
         'about': "About_us.html",
         'apply':'Apply.html',
         'application':'Apply.html'
