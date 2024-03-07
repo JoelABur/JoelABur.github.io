@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam API Example</title>
+</head>
+<body>
+    <h1>Steam Game Details</h1>
+    <div id="gameDetails"></div>
+
+    <script>
+        async function fetchGameDetails() {
+            const url = 'https://steam-api-client-access.p.rapidapi.com/gameDetails/1966720';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
+                    'X-RapidAPI-Host': 'steam-api-client-access.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                return result;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function displayGameDetails() {
+            const gameDetailsDiv = document.getElementById('gameDetails');
+            const gameDetails = await fetchGameDetails();
+            gameDetailsDiv.innerHTML = `
+                <p>Title: ${gameDetails.name}</p>
+                <p>Description: ${gameDetails.short_description}</p>
+                <p>Release Date: ${gameDetails.release_date}</p>
+                <p>Price: ${gameDetails.price}</p>
+                <img src="${gameDetails.header_image}" alt="Game Image">
+            `;
+        }
+
+        displayGameDetails();
+    </script>
+</body>
+</html>
