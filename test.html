@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam API Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Player Count</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    #playerCount {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Current Player Count</h1>
+  <div class="container">
+    <h1>Game Player Count</h1>
     <div id="playerCount"></div>
+  </div>
+  <script>
+    const url = 'https://steam-api-client-access.p.rapidapi.com/gameDetails/1966720';
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
+        'X-RapidAPI-Host': 'steam-api-client-access.p.rapidapi.com'
+      }
+    };
 
-    <script>
-        async function fetchPlayerCount() {
-            const url = 'https://steam-api-client-access.p.rapidapi.com/currentPlayerCount/1966720';
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
-                    'X-RapidAPI-Host': 'steam-api-client-access.p.rapidapi.com'
-                }
-            };
+    const playerCountElement = document.getElementById('playerCount');
 
-            try {
-                const response = await fetch(url, options);
-                const result = await response.json();
-                return result;
-            } catch (error) {
-                console.error("Error fetching player count:", error);
-            }
+    async function fetchPlayerCount() {
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result); // Log the entire response to inspect it
+        if (result && result.player_count !== undefined) {
+          playerCountElement.textContent = `Current Player Count: ${result.player_count}`;
+        } else {
+          playerCountElement.textContent = 'Player count data unavailable';
         }
+      } catch (error) {
+        console.error(error);
+        playerCountElement.textContent = 'Error fetching player count';
+      }
+    }
 
-        async function displayPlayerCount() {
-            const playerCountDiv = document.getElementById('playerCount');
-            const playerCountData = await fetchPlayerCount();
-            if (playerCountData && playerCountData.player_count !== undefined) {
-                playerCountDiv.innerText = `Current Player Count: ${playerCountData.player_count}`;
-            } else {
-                playerCountDiv.innerText = "Unable to fetch player count.";
-            }
-        }
-
-        displayPlayerCount();
-    </script>
+    fetchPlayerCount();
+  </script>
 </body>
 </html>
