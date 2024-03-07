@@ -15,7 +15,7 @@ function handleSearch() {
         'about': "About_us.html",
         'apply':'Apply.html',
         'application':'Apply.html',
-        'tesy':'text.html'
+        'test':'test.html'
         // Add more search terms and their corresponding URLs here
     };
 
