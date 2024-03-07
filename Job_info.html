@@ -63,6 +63,21 @@
                 }
             });
         </script>
+        <script>
+            success: function(response) {
+                // Check if the response contains the expected data
+                if (response && response.response && response.response.player_count !== undefined) {
+                    // Parse the response and extract the player count
+                    const playerCount = response.response.player_count;
+
+                    // Update the HTML with the player count
+                    $('#playerCount').text(`Current Players: ${playerCount}`);
+                } else {
+                    // Handle unexpected response format
+                    $('#playerCount').text('Error: Unexpected response format');
+                }
+            }
+        </script>
 
 
         <div class="row">
