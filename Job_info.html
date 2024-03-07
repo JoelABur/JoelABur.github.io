@@ -7,7 +7,6 @@
         <link rel="icon" type="image/x-icon" href="./images/logo.png">
         <link rel="stylesheet" href="./css/three-3.css">
         <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body style="background-color:rgb(0, 0, 0)">
         <nav class="navbar">
@@ -62,21 +61,6 @@
                     $('#playerCount').text('Error fetching player count');
                 }
             });
-        </script>
-        <script>
-            success: function(response) {
-                // Check if the response contains the expected data
-                if (response && response.response && response.response.player_count !== undefined) {
-                    // Parse the response and extract the player count
-                    const playerCount = response.response.player_count;
-
-                    // Update the HTML with the player count
-                    $('#playerCount').text(`Current Players: ${playerCount}`);
-                } else {
-                    // Handle unexpected response format
-                    $('#playerCount').text('Error: Unexpected response format');
-                }
-            }
         </script>
 
 
@@ -148,7 +132,7 @@
         <!-- <script src="./js/playerCount.js"></script>
         <script src="./js/retrieve.js"></script>
         <script src="playerCount.json"></script> -->
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
     </body>
     </html>
