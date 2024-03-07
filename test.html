@@ -1,58 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Steam App Details</title>
-  <style>
-    /* Add your CSS styles here */
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Current Players</title>
+<script>
+function getCurrentPlayers() {
+    var appId = document.getElementById('appId').value;
+    var apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9'; // Replace 'YOUR_API_KEY' with your actual Steam Web API key
+    var url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}&key=${apiKey}`;
+    
+    fetch(url, { mode: 'cors' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.response && data.response.player_count !== undefined) {
+                document.getElementById('playerCount').textContent = 'Current number of players: ' + data.response.player_count;
+            } else {
+                document.getElementById('playerCount').textContent = 'Failed to retrieve player count.';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching player count:', error);
+            document.getElementById('playerCount').textContent = 'Error fetching player count.';
+        });
+}
+</script>
 </head>
 <body>
-  <div id="appDetails">
-    <!-- Data will be displayed here -->
-  </div>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
-    async function fetchAppDetails() {
-      const options = {
-        method: 'GET',
-        url: 'https://steam2.p.rapidapi.com/appDetail/1966720',
-        headers: {
-          'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
-          'X-RapidAPI-Host': 'steam2.p.rapidapi.com'
-        }
-      };
-
-      try {
-        const response = await axios.request(options);
-        displayAppDetails(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    function displayAppDetails(data) {
-      const appDetailsContainer = document.getElementById('appDetails');
-      // Clear previous content
-      appDetailsContainer.innerHTML = '';
-
-      // Display relevant data
-      const { name, developers, publishers, price_overview, genres } = data;
-
-      const html = `
-        <h1>${name}</h1>
-        <p><strong>Developers:</strong> ${developers.join(', ')}</p>
-        <p><strong>Publishers:</strong> ${publishers.join(', ')}</p>
-        <p><strong>Price:</strong> ${price_overview ? price_overview.final_formatted : 'N/A'}</p>
-        <p><strong>Genres:</strong> ${genres.map(genre => genre.description).join(', ')}</p>
-      `;
-
-      appDetailsContainer.innerHTML = html;
-    }
-
-    fetchAppDetails();
-  </script>
+<h1>Steam Current Players</h1>
+<label for="appId">Enter App ID:</label>
+<input type="text" id="appId" placeholder="Enter Steam App ID">
+<button onclick="getCurrentPlayers()">Get Current Players</button>
+<p id="playerCount"></p>
 </body>
 </html>
