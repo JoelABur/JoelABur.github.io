@@ -1,6 +1,6 @@
 function fetchPlayerCount() {
     // Replace <YOUR_GAME_ID> with the AppID of the game you want to get the player count for
-    const gameID = '1966720';
+    const gameID = '<1966720>';
     const apiKey = '<CAB152343E38FB1592BA93D7CEAB68D9>';
     const url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${gameID}&format=json&key=${apiKey}`;
 
