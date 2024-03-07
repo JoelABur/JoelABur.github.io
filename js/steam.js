@@ -1,16 +1,20 @@
-const apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9';
-const appId = '1966720'; 
+function fetchPlayerCount() {
+    // Replace <YOUR_GAME_ID> with the AppID of the game you want to get the player count for
+    const gameID = '1966720';
+    const apiKey = '<CAB152343E38FB1592BA93D7CEAB68D9>';
+    const url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${gameID}&format=json&key=${apiKey}`;
 
-const apiUrl = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}&key=${apiKey}`;
-
-// Make an HTTP GET request to the Steam API
-fetch(apiUrl)
+    fetch(url)
     .then(response => response.json())
     .then(data => {
-        const playerCount = data.response.player_count;
-        document.getElementById('playerCount').textContent = `Current Number of Employees: ${playerCount}`;
+        // Update the playerCount element with the retrieved player count
+        document.getElementById('playerCount').innerText = `Current number of players: ${data.response.player_count}`;
     })
     .catch(error => {
         console.error('Error fetching player count:', error);
-        document.getElementById('playerCount').textContent = 'Error fetching Employee count';
+        document.getElementById('playerCount').innerText = 'Error fetching player count';
     });
+}
+
+// Call the fetchPlayerCount function when the page loads
+window.onload = fetchPlayerCount;
