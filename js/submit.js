@@ -31,8 +31,9 @@ document.getElementById("retrieve").addEventListener("click", function() {
     } else {
         alert("No saved application data found.");
     }
+});
 
-    // Function to send application
+// Function to send application
 document.getElementById("send").addEventListener("click", function() {
     var formData = JSON.parse(localStorage.getItem("jobApplication"));
     if (formData && formData.name && formData.moonOfOrigin && formData.lastPosition && formData.skills && formData.criminalNegligence) {
@@ -42,6 +43,4 @@ document.getElementById("send").addEventListener("click", function() {
     } else {
         alert("Please complete the form.");
     }
-});
-
 });
