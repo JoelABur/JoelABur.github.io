@@ -117,9 +117,59 @@
         </div>
 
         
-        <div id="twitch-embed"></div>
-
+        
+        <script>
+            // Replace 'YOUR_CLIENT_ID' with your actual Twitch API client ID
+            const clientId = 'gmaop6kwhpg337cu2pzxjokd8g1423';
+            const gameName = 'Lethal_company'; // Replace with the name of the game you want to fetch streams for
+    
+            // Function to fetch the top streams for a specific game
+            function fetchTopStreams() {
+                // Construct the API URL
+                const apiUrl = `https://api.twitch.tv/helix/streams?game_id=${gameId}&first=1`;
+    
+                // Make AJAX request to Twitch API
+                fetch(apiUrl, {
+                    headers: {
+                        'Client-ID': clientId
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Extract information of the top stream
+                    const topStream = data.data[0];
+                    const streamId = topStream.id;
+                    const streamUsername = topStream.user_name;
+    
+                    // Embed the top stream using Twitch embed player
+                    new Twitch.Embed("twitchEmbed", {
+                        width: 800,
+                        height: 480,
+                        channel: streamUsername
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching top stream:', error);
+                    document.getElementById('twitchEmbed').textContent = 'Error fetching top stream';
+                });
+            }
+    
+            // Call the fetchTopStreams function when the page loads
+            window.addEventListener('load', fetchTopStreams);
+        </script>
         <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- footer -->
         <footer class="footer">
