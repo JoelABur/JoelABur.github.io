@@ -36,18 +36,6 @@
             <h1 style="color: #00ff2f;">Current Number of Employees</h1>
             <p id="playerCount">Loading...</p>
         </div>
-        
-        <script>
-            fetch('playerCount.json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('playerCount').textContent = `Current Number of Employees: ${data.playerCount}`;
-                })
-                .catch(error => {
-                    console.error('Error fetching player count:', error);
-                    document.getElementById('playerCount').textContent = 'Error fetching Employee count';
-                });
-        </script>
 
         <div class="row">
             <div class="col">
@@ -110,7 +98,7 @@
         <p>Contact us: The@Compnayteam.llc | Phone: 123-456-7890</p>
         </footer>
         <script src="./js/cards.js"></script>
-        <script src="./js/steam.js"></script>
+        <script src="./js/steam.js`"></script>
         <!-- <script src="./js/twitch.js"></script> -->
         <!-- <script src="./js/steam.js"></script> -->
         <!-- <script src="./js/playerCount.js"></script>
