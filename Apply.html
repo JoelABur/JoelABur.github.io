@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{ 
+            /* background-image:url(./images/tumblr_obfjz6Bd9f1runoqyo2_r1_540.gif); */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Compnay™</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./css/three.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body style="background-color:rgb(0, 0, 0)">
+    <nav class="navbar">
+        <div class="container">
+            <a href="home.html"> 
+                <div class="logo">
+                    <img src="./images/logo.png" alt="Logo">
+                </div>
+            </a>
+            <div class="search">
+                <input type="text" placeholder="> Search" class="search-input">
+            </div>
+            <script src="./js/search.js"></script>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="home.html">Home</a>
+                    <a href="About_us.html">About us</a>
+                    <a href="Job_info.html">Jobs</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="container-body">
+        <div class="left-column">
+            <img src="https://preview.redd.it/the-company-needs-you-v0-0o82rfs7ns1c1.png?auto=webp&s=5c01de0ca84268b2a3c5d16a965c1c38360a1c6c" alt="Left Image">
+        </div>
+        <div class="right-column">
+            <div class="card">
+                <h2>Thank you for choosing to work at The Company.</h2>
+                <p>Please fill out the information below in the order presented:</p>
+                <div class="card-content">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name"><br>
+                </div>
+                <div class="card-content">
+                    <label for="moon">Moon of Origin:</label><br>
+                    <input type="text" id="moon" name="moon"><br>
+                </div>
+                <div class="card-content">
+                    <label for="position">Last position worked:</label><br>
+                    <input type="text" id="position" name="position"><br>
+                </div>
+                <div class="card-content">
+                    <label for="skills">Skills to offer:</label><br>
+                    <input type="text" id="skills" name="skills"><br>
+                </div>
+                <div class="card-content">
+                    <label for="criminal">Any past criminal negligence:</label><br>
+                    <input type="text" id="criminal" name="criminal"><br>
+                </div>
+                <button class="card-button" id="save">Save Application</button>
+                <button class="card-button" id="delete">Delete Application</button>
+                <button class="card-button" id="retrieve">Retrieve Saved Data</button>
+                <div id="saved-data"></div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+    <footer class="footer">
+    <p>Contact us: The@Compnayteam.llc | Phone: 123-456-7890</p>
+    </footer>
+    <script src="./js/submit.js"></script>
+</body>
+</html>

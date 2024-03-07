@@ -1,0 +1,243 @@
+.navbar {
+    background-color: #000;
+    border: 1px solid #ff0000;
+    height: 75px;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 20px; /* Add spacing between logo and search bar */
+}
+
+.search {
+    flex: 1;
+    margin: 0 20px; /* Add spacing around the search bar */
+}
+
+.search-input {
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-family: monospace;
+    width: 100%;
+    outline: 1px solid #ff0000; /* Add green outline */
+}
+
+.search-input::placeholder {
+    color: #ff0000; 
+}
+
+
+.dropbtn {
+    background-color: #000000;
+    color: #ff0000;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #ff0000;
+    margin-left: 20px; /* Add spacing between search bar and button */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown-content a {   
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Jura', sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #ff0000;
+    border: 1px solid #000000;
+    color: black;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .search {
+        width: 60%; /* Adjust width of the search bar */
+    }
+
+    .dropdown {
+        left: auto;
+        right: 10px; /* Adjust the position of the dropdown button */
+    }
+}
+
+/*below this line is no longer the search bar*/
+
+.carousel-item {
+    height: 75vh;
+}
+
+/* CSS for card container */
+.cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  
+}
+
+/* CSS for individual card */
+.card {
+    outline: 3px solid #ff0000;
+    position: relative;
+    width: 300px; /* Increased width */
+    height: 300px; /* Increased height */
+    margin: 0; /* No margin */
+    overflow: hidden;
+}
+
+/* CSS for card image */
+.card img {
+    width: 100%;
+    height: 100%;
+}
+
+/* CSS for overlay text */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Jura', sans-serif;
+    color: rgb(255, 0, 0);
+    /* opacity: 0; /* Initially hidden */
+    /* transition: opacity 0.3s ease;  */
+    font-size: 200%;
+    text-shadow: -1px -1px 0 #000;
+        text-shadow: -1px -1px 0 #000;
+        text-shadow: -1px -1px 0 #000;
+        text-shadow: -1px -1px 0 #000; 
+}
+
+/* CSS for card hover effect */
+.card:hover .overlay {
+    opacity: 1; /* Show on hover */
+}
+
+.footer {
+    outline: 1px solid #ff0000;
+    background-color: #000000; /* Background color */
+    color: #ff0000; /* Text color */
+    padding: 20px; /* Padding */
+    text-align: center; /* Center-align text */
+    position: relative; /* Fixed position at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+    left: 0; /* Align to the left */
+    font-family: 'Jura', sans-serif;
+}
+
+.carousel-control-prev,
+    .carousel-control-next {
+        background-color: red; /* Set background color to red */
+        border: none; /* Remove border */
+    }
+
+    /* Custom CSS for carousel control icons */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-chevron-left' viewBox='0 0 16 16'%3e%3cpath d='M10.354 1.646a.5.5 0 0 1 0 .708L5.707 8l4.647 4.646a.5.5 0 1 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e"); /* Use red color for the icon */
+    }
+
+    /* Additional CSS to adjust icon size */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 2rem; /* Adjust icon width */
+        height: 2rem; /* Adjust icon height */
+    }
+
+    /* Additional CSS to style the hover effect */
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: darkred; /* Set hover background color to dark red */
+    }
+
+    /* Custom CSS for text color on hover */
+    .carousel-control-prev:hover .sr-only,
+    .carousel-control-next:hover .sr-only {
+        color: black; /* Set text color to black on hover */
+    }
+
+    .moon-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .moon-column {
+        flex-basis: calc(33.33% - 10px); /* Three columns with some spacing between them */
+        padding: 0 5px; /* Adjust spacing as needed */
+        border: 2px solid red; /* Add red border to all columns */
+        color: #ff0000; /* Text color */
+    }
+    
+
+    #moonInput::placeholder {
+        color: red; /* Set placeholder text color to red */
+    }
+    
+    #moonInput:focus {
+        outline: none; /* Remove outline on focus */
+    }
+    
+    #moonInput {
+        width: calc(100% - 110px); /* Adjust width to make space for the button */
+        margin-bottom: 0; /* Change margin-bottom to 0px */
+        margin-top: 10px; /* Add margin-top to move the input field 10px lower */
+        margin-right: 10px; /* Add margin-right to move the input field 10px to the right */
+        background-color: black; /* Set background color to black */
+        color: red; /* Set text color to red */
+        border: 2px solid red; /* Set border color to red */
+        outline: none; /* Remove default outline */
+        padding: 5px; /* Add padding for better appearance */
+    }
+    
+    #moonButton {
+        background-color: black; /* Set background color to black */
+        color: red; /* Set text color to red */
+        border: 2px solid red; /* Set border color to red */
+        padding: 5px 10px; /* Add padding for better appearance */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        margin-top: 10px; /* Add margin-top to match the input field */
+    }
+
+    
+    #moonButton:hover {
+        background-color: red; /* Change background color on hover */
+    }
+    
+    #moonDescription {
+        color: red;
+    }
+    
+    .moon-column img {
+        max-width: 100%; /* Ensure the image doesn't exceed its container width */
+        height: auto; /* Automatically adjust height to maintain aspect ratio */
+    }
+    
