@@ -3,34 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steam Current Players</title>
-<script>
-function getCurrentPlayers() {
-    var appId = document.getElementById('appId').value;
-    var apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9'; // Replace 'YOUR_API_KEY' with your actual Steam Web API key
-    var url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}&key=${apiKey}`;
-    
-    fetch(url, { mode: 'cors' })
-        .then(response => response.json())
-        .then(data => {
-            if (data.response && data.response.player_count !== undefined) {
-                document.getElementById('playerCount').textContent = 'Current number of players: ' + data.response.player_count;
-            } else {
-                document.getElementById('playerCount').textContent = 'Failed to retrieve player count.';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching player count:', error);
-            document.getElementById('playerCount').textContent = 'Error fetching player count.';
-        });
-}
-</script>
+<title>Steam API Fetch</title>
 </head>
 <body>
-<h1>Steam Current Players</h1>
-<label for="appId">Enter App ID:</label>
-<input type="text" id="appId" placeholder="Enter Steam App ID">
-<button onclick="getCurrentPlayers()">Get Current Players</button>
-<p id="playerCount"></p>
+<script>
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow"
+  };
+
+  fetch("https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1966720", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      // Display the result
+      document.body.innerHTML = "<pre>" + JSON.stringify(result, null, 2) + "</pre>";
+    })
+    .catch(error => console.error('Error:', error));
+</script>
 </body>
 </html>
