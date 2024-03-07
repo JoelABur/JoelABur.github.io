@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam Game Stats</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam App Details</title>
+  <style>
+    /* Add your CSS styles here */
+  </style>
 </head>
 <body>
-    <h1>Steam Game Stats</h1>
-    <div id="gameStats"></div>
+  <div id="appDetails">
+    <!-- Data will be displayed here -->
+  </div>
 
-    <script>
-        async function fetchGameStats() {
-            const url = 'https://steamcharts.p.rapidapi.com/api/v1/games/1966720';
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
-                    'X-RapidAPI-Host': 'steamcharts.p.rapidapi.com'
-                }
-            };
-
-            try {
-                const response = await fetch(url, options);
-                const result = await response.json();
-                displayGameStats(result);
-            } catch (error) {
-                console.error(error);
-            }
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    async function fetchAppDetails() {
+      const options = {
+        method: 'GET',
+        url: 'https://steam2.p.rapidapi.com/appDetail/1966720',
+        headers: {
+          'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
+          'X-RapidAPI-Host': 'steam2.p.rapidapi.com'
         }
+      };
 
-        function displayGameStats(stats) {
-            const gameStatsContainer = document.getElementById('gameStats');
-            const statsHTML = `
-                <p>Current Players: ${stats.current_players}</p>
-                <p>Peak Players Today: ${stats.peak_players_today}</p>
-                <p>Peak Players: ${stats.peak_players}</p>
-            `;
-            gameStatsContainer.innerHTML = statsHTML;
-        }
+      try {
+        const response = await axios.request(options);
+        displayAppDetails(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-        fetchGameStats();
-    </script>
+    function displayAppDetails(data) {
+      const appDetailsContainer = document.getElementById('appDetails');
+      // Clear previous content
+      appDetailsContainer.innerHTML = '';
+
+      // Display relevant data
+      const { name, developers, publishers, price_overview, genres } = data;
+
+      const html = `
+        <h1>${name}</h1>
+        <p><strong>Developers:</strong> ${developers.join(', ')}</p>
+        <p><strong>Publishers:</strong> ${publishers.join(', ')}</p>
+        <p><strong>Price:</strong> ${price_overview ? price_overview.final_formatted : 'N/A'}</p>
+        <p><strong>Genres:</strong> ${genres.map(genre => genre.description).join(', ')}</p>
+      `;
+
+      appDetailsContainer.innerHTML = html;
+    }
+
+    fetchAppDetails();
+  </script>
 </body>
 </html>
