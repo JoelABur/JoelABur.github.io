@@ -245,4 +245,16 @@
         max-width: 100%; /* Ensure the image doesn't exceed its container width */
         height: auto; /* Automatically adjust height to maintain aspect ratio */
     }
+
+
+    .quote-row {
+        color: red;
+        display: flex;
+        justify-content: center;
+        border: 2px solid red;
+        padding: 10px;
+    }
     
+    #quotePlaceholder {
+        font-size: 28px; /* Adjust the font size here */
+    }

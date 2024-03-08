@@ -7,8 +7,8 @@ fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
 })
 .then(response => response.json())
 .then(response => {
-    console.log(response);
-    console.log(response.content)
+    const quoteElement = document.getElementById("quotePlaceholder");
+    quoteElement.textContent = response.content;
 })
 .catch(err => {
     console.log(err);
