@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Video Downloader</h1>
+    <button id="downloadBtn">Download Video</button>
+    <p id="downloadLink"></p>
+  </div>
+  
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', async () => {
+      const options = {
+        method: 'GET',
+        url: 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl',
+        params: {id: 'UILoqD7iMkE'},
+        headers: {
+          'X-RapidAPI-Key': 'c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19',
+          'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(options.url, {
+          method: options.method,
+          headers: options.headers,
+        });
+        const data = await response.json();
+        if (data && data.link) {
+          document.getElementById('downloadLink').innerHTML = `<a href="${data.link}" target="_blank">Download Here</a>`;
+        } else {
+          document.getElementById('downloadLink').innerHTML = 'Failed to fetch download link';
+        }
+      } catch (error) {
+        console.error(error);
+        document.getElementById('downloadLink').innerHTML = 'Error: Failed to fetch download link';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,135 +1,103 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Compnay™</title>
-        <link rel="icon" type="image/x-icon" href="./images/logo.png">
-        <link rel="stylesheet" href="./css/three-3.css">
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    </head>
-    <body style="background-color:rgb(0, 0, 0)">
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html"> 
-                    <div class="logo">
-                        <img src="./images/green-logo.png" alt="Logo">
-                    </div>
-                </a>
-                <div class="search">
-                    <input type="text" placeholder="> Search" class="search-input">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Compnay™</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./css/three-3.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body style="background-color:rgb(0, 0, 0)">
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html"> 
+                <div class="logo">
+                    <img src="./images/green-logo.png" alt="Logo">
                 </div>
-                <script src="./js/search.js"></script>
-                <div class="dropdown">
-                    <button class="dropbtn">Menu</button>
-                    <div class="dropdown-content">
-                        <a href="index.html">Home</a>
-                        <a href="About_us.html">About us</a>
-                        <a href="Job_info.html">Jobs</a>
-                        <a href="Apply.html">Apply</a>
-                    </div>
-                </div>
+            </a>
+            <div class="search">
+                <input type="text" placeholder="> Search" class="search-input">
             </div>
-        </nav>
-
-
-        <script>
-           fetch('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1966720')
-            .then(response => {
-                // Check if the response is successful
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                // Parse the JSON response
-                return response.json();
-            })
-            
-            .then(data => {
-                // Extract the desired information from the response
-                const playerCount = data.response.player_count;
-                console.log('Number of current players:', playerCount);
-            })
-            
-            .catch(error => {
-                // Handle any errors that occur during the fetch operation
-            console.error('There was a problem with the fetch operation:', error);
-             });
-        </script>
-        
-
-
-        <div class="row">
-            <div class="col">
-                <img src="./images/worker.webp" alt="worker man" class="responsive-image">
-            </div>            
-            <div class="col">
-                <div class="card" style="background-image: url('./images/work_images/Lethal-Company-How-to-Move-Furniture.jpg'); background-size: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: #00ff2f;"> * Monitor and Pilot Duty</h5>
-                        <p class="card-text">This person's job is to watch over fellow crewmates as well as pilot the ship to and from moons</p>
-                        <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
-                        <div class="more-info" style="display: none;">
-                            <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Additional information about the job...</p>
-                        </div>
-                    </div>
+            <script src="./js/search.js"></script>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Home</a>
+                    <a href="About_us.html">About us</a>
+                    <a href="Job_info.html">Jobs</a>
+                    <a href="Apply.html">Apply</a>
                 </div>
-                <!-- Repeat similar structure for other cards -->
-                <div class="card" style="background-image: url('./images/work_images/1966720_screenshots_20231118112404_1.jpg'); background-size: cover;">
-                    <div class="card-body" >
-                        <h5 class="card-title" style="color: #00ff2f;"> * Terminal Duty</h5>
-                        <p class="card-text">This person works closely with the Pilot and manages flight patterns, finances, documentation of travels, and enabling/disabling obstacles inside the facility.</p>
-                        <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
-                        <div class="more-info" style="display: none;">
-                            <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Additional information about the job...</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Repeat similar structure for other cards -->
-                <div class="card" style="background-image: url('./images/work_images/jnysruu8k9exf4ziev6kkk8u1bas.png'); background-size: cover;">
-                    <div class="card-body ">
-                        <h5 class="card-title" style="color: #00ff2f;"> * Facility Explorer</h5>
-                        <p class="card-text">This person works closely with the Pilot and manages flight patterns, finances, documentation of travels, and enabling/disabling obstacles inside the facility.</p>
-                        <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
-                        <div class="more-info" style="display: none;">
-                            <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Additional information about the job...</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- dd-->
-                <div class="card" style="background-image: url('./images/work_images/image.png'); background-size: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: #00ff2f;"> * Transit Duty</h5>
-                        <p class="card-text" style="color: #00ff2f;">This person works closely with the explorer however after some time they splinter off and work to bring back garbage to the ship</p>
-                        <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
-                        <div class="more-info" style="display: none;">
-                            <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;" >Additional information about the job...</p>
-                        </div>
-                    </div>
-                </div>   
             </div>
         </div>
+    </nav>
 
-        
-        
-        <div class='sk-ww-twitch-live-videos' data-embed-id='25377103'></div><script src='https://widgets.sociablekit.com/twitch-live-videos/widget.js' async defer></script>
-        
+    <div class="row">
+        <div class="col">
+            <img src="./images/worker.webp" alt="worker man" class="responsive-image">
+        </div>            
+        <div class="col">
+            <div class="card" style="background-image: url('./images/work_images/Lethal-Company-How-to-Move-Furniture.jpg'); background-size: cover;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #00ff2f;"> * Monitor and Pilot Duty</h5>
+                    <p class="card-text">This person's job is to watch over fellow crewmates as well as pilot the ship to and from moons</p>
+                    <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
+                    <div class="more-info" style="display: none;">
+                        <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Additional information about the job...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar structure for other cards -->
+            <div class="card" style="background-image: url('./images/work_images/1966720_screenshots_20231118112404_1.jpg'); background-size: cover;">
+                <div class="card-body" >
+                    <h5 class="card-title" style="color: #00ff2f;"> * Terminal Duty</h5>
+                    <p class="card-text">This person works closely with the Pilot and manages flight patterns, finances, documentation of travels, and enabling/disabling obstacles inside the facility.</p>
+                    <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
+                    <div class="more-info" style="display: none;">
+                        <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Additional information about the job...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar structure for other cards -->
+            <div class="card" style="background-image: url('./images/work_images/jnysruu8k9exf4ziev6kkk8u1bas.png'); background-size: cover;">
+                <div class="card-body ">
+                    <h5 class="card-title" style="color: #00ff2f;"> * Facility Explorer</h5>
+                    <p class="card-text">This person works closely with the Pilot and manages flight patterns, finances, documentation of travels, and enabling/disabling obstacles inside the facility.</p>
+                    <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
+                    <div class="more-info" style="display: none;">
+                        <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Additional information about the job...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- dd-->
+            <div class="card" style="background-image: url('./images/work_images/image.png'); background-size: cover;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #00ff2f;"> * Transit Duty</h5>
+                    <p class="card-text" style="color: #00ff2f;">This person works closely with the explorer however after some time they splinter off and work to bring back garbage to the ship</p>
+                    <button class="btn" onclick="toggleCard(this)" style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;">Full Overview</button>
+                    <div class="more-info" style="display: none;">
+                        <p style="color: #00ff2f;  text-shadow: -1px -1px 0 #000;" >Additional information about the job...</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+    
+    
+    <div class='sk-ww-twitch-live-videos' data-embed-id='25377103'></div><script src='https://widgets.sociablekit.com/twitch-live-videos/widget.js' async defer></script>
+    
 
 
-        <!-- footer -->
-        <footer class="footer">
-        <p>Contact us: The@Compnayteam.llc | Phone: 123-456-7890</p>
-        </footer>
-        <script src="./js/cards.js"></script>
-        <!-- <script src="./js/steam.js`"></script> -->
-        <!-- <script src="./js/twitch.js"></script> -->
-        <!-- <script src="./js/steam.js"></script> -->
-        <!-- <script src="./js/playerCount.js"></script>
-        <script src="./js/retrieve.js"></script>
-        <script src="playerCount.json"></script> -->
-        
-    </body>
-    </html>
+    <!-- footer -->
+    <footer class="footer">
+    <p>Contact us: The@Compnayteam.llc | Phone: 123-456-7890</p>
+    </footer>
+    <script src="./js/cards.js"></script>
+    
+</body>
+</html>
 
-    <!-- steam api key CAB152343E38FB1592BA93D7CEAB68D9 -->
+<!-- steam api key CAB152343E38FB1592BA93D7CEAB68D9 -->
