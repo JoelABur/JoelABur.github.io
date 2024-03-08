@@ -8,7 +8,7 @@ function searchMoon() {
             "description": "POPULATION: Abandoned.<br>CONDITIONS: Arid, Thick haze. Low habitability, worsened by industrial artifacts.<br>HISTORY: Not discovered for quite some time due to its close orbit around gas giant Big Grin. However it appears to have been used in secret.<br>FAUNA: Dominated by a few species."
         },
         "assurance": { 
-            "image": "moons/assurance.jpg", 
+            "image": "moons/Assurance.jpg", 
             "alternateImage": "./images/moons/assuranceinfo.jpg", 
             "description": "POPULATION: Abandoned.<br>CONDITIONS:Similar to its twin moon, 41-Experimentation, featuring far more jagged and weathered terrain.<br>HISTORY: 220-Assurance is far younger than its counterpart. Discovered not long before 41-Experimentation.<br>FAUNA: Ecosystem supports territorial behavior."
         },
