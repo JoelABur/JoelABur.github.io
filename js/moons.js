@@ -17,7 +17,7 @@ function searchMoon() {
             "alternateImage": "./images/moons/vowinfo.png", 
             "description": "POPULATION: Abandoned.<br>CONDITIONS:Humid, Rough terrain. Teeming with plant life.<br>HISTORY:Vow appears to have been inhabited by several colonies across its continents, but there is now no sign of life, and they have become a mystery.<br>FAUNA:Diverse, teeming with plant-life. A competitive ecosystem supports aggressive lifeforms."
         },
-        "offence": { 
+        "offense": { 
             "image": "moons/Offense.jpg", 
             "alternateImage": "./images/moons/offenceinfo.png", 
             "description": "POPULATION: Abandoned.<br>CONDITIONS:HBelieved to have splintered off from its cousin 220-Assurance, Offense features similar jagged and dry conditions but differs in its ecosystem.<br>HISTORY:21-Offense is categorized as an asteroid moon and seems to have not existed on its own for more than several hundred years. The industrial artifacts here have suffered damage; its believed they were built long before 21-Offense was splintered off.<br>FAUNA:A competitive and toughened ecosystem supports aggressive lifeforms. Travelers to 21-Offense should know it's not for the faint of heart."
