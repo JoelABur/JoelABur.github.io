@@ -15,7 +15,10 @@ function handleSearch() {
         'about': "About_us.html",
         'apply':'Apply.html',
         'application':'Apply.html',
-        'test':'test.html'
+        'bot':'text.html',
+        'chatbot':'text.html',
+        'chat bot':'text.html'
+
         // Add more search terms and their corresponding URLs here
     };
 

@@ -3,27 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video Downloader</title>
+    <title>The Compnay™</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./css/three-6.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
-<body>
-    <p id="quotePlaceholder">Fetching quote...</p>
+<body style="background-color:rgb(0, 0, 0)">
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html"> 
+                <div class="logo">
+                    <img src="./images/green-logo.png" alt="Logo">
+                </div>
+            </a>
+            <div class="search">
+                <input type="text" placeholder="> Search" class="search-input">
+            </div>
+            <script src="./js/search.js"></script>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Home</a>
+                    <a href="About_us.html">About us</a>
+                    <a href="Job_info.html">Jobs</a>
+                    <a href="Apply.html">Apply</a>
+                    <a href="text.html">Bot</a> 
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <footer class="footer">
+        <p> The Company™ Chatbot</p>
+        </footer>
+        <script src="./js/cards.js"></script>
     
-    <script>
-        fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
-            "method": 'GET',
-            "headers": {
-                "X-RapidAPI-Key": "c18eed165bmsh2a15e18504749ffp18e97ejsn0546bcdfba19",
-                "X-RapidAPI-Host": "quotes15.p.rapidapi.com"
-            }
-        })
-        .then(response => response.json())
-        .then(response => {
-            const quoteElement = document.getElementById("quotePlaceholder");
-            quoteElement.textContent = response.content;
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    </script>
+
+    <!-- start of chatbot -->
+
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input"  placeholder="Type your message... ">
+        <button id="sendButton">Send</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/openai-gpt@0.0.3/dist/openai-gpt.min.js"></script>
+    <script src="./js/chay.js"></script>
+
+    <!-- end of chatbot -->
+
+    <!-- footer -->
+    <footer class="footer">
+    <p>Contact us: The@Compnayteam.llc | Phone: 123-456-7890</p>
+    </footer>
+    <script src="./js/cards.js"></script>
+    
 </body>
 </html>
+
+<!-- steam api key CAB152343E38FB1592BA93D7CEAB68D9 -->
