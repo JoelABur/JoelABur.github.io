@@ -1,6 +1,6 @@
 const fs = require('fs'); // If you're using Node.js for file system operations
 
-const apiKey = 'CAB152343E38FB1592BA93D7CEAB68D9';
+const apiKey = '';
 const appId = '1966720'; 
 
 const apiUrl = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}&key=${apiKey}`;
